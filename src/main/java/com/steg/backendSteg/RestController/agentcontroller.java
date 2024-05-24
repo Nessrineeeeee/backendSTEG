@@ -1,11 +1,9 @@
 package com.steg.backendSteg.RestController;
 import com.steg.backendSteg.DemandeService.AgentService; // Correction du chemin d'accès
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.steg.backendSteg.steg.Agent;
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/steg/")
 public class agentcontroller {
@@ -15,8 +13,9 @@ public class agentcontroller {
         this.agentService = agentService;
     }
 
-    @PostMapping("/agent")
+    @PostMapping("agent")
     public Agent ajouterDemande(@RequestBody Agent agent) {
+        System.out.println("seccs");
         return agentService.enregistreragant(agent);
     }
 
